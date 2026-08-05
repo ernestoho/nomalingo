@@ -1,0 +1,31 @@
+# EAS Workflow: deploy to production on every push to main.
+#
+# What this does, in order:
+#   1. Triggered by any push to the `main` branch on GitHub.
+#   2. The `deploy_web` job exports the app and deploys it to
+#      https://nomadalingo.expo.app (the production alias).
+#
+# Environment secrets DATABASE_URL, QR_SECRET, and ADMIN_EMAIL are already set
+# on the `production` environment in the EAS dashboard — the deploy job picks
+# them up automatically when `environment: production` is set.
+#
+# To trigger manually (for testing without a push):
+#   npx eas-cli@latest workflow:run .eas/workflows/deploy.yml
+#
+# To watch the logs of the last run:
+#   npx eas-cli@latest workflow:logs
+
+name: Deploy to production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy_web:
+    name: Deploy web to nomadalingo.expo.app
+    type: deploy
+    environment: production
+    params:
+      prod: true
