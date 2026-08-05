@@ -1,0 +1,92 @@
+{
+  "expo": {
+    "name": "NómadaLingo",
+    "slug": "nomadalingo",
+    "owner": "remoto",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "nomadalingo",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#14304F"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.remoto.nomadalingo",
+      "infoPlist": {
+        "NSCameraUsageDescription": "NómadaLingo usa la cámara para escanear los códigos QR de entrada en los encuentros.",
+        "NSPhotoLibraryUsageDescription": "NómadaLingo necesita acceso a tus fotos para que elijas una foto de perfil.",
+        "NSLocationWhenInUseUsageDescription": "NómadaLingo usa tu ubicación una sola vez para detectar en qué zona de Punta Cana estás."
+      }
+    },
+    "android": {
+      "package": "com.remoto.nomadalingo",
+      "edgeToEdgeEnabled": true,
+      "adaptiveIcon": {
+        "backgroundColor": "#14304F",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "server"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-splash-screen",
+      "expo-image",
+      "expo-localization",
+      "expo-web-browser",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "NómadaLingo necesita acceso a tus fotos para que elijas una foto de perfil."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "NómadaLingo usa tu ubicación una sola vez para detectar tu zona.",
+          "isAndroidBackgroundLocationEnabled": false
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "NómadaLingo usa la cámara para escanear códigos QR de entrada.",
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#2A9D8F"
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "3d13599d-15c0-4e60-a65f-9cc890ca27df"
+      }
+    }
+  }
+}
